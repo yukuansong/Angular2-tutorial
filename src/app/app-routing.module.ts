@@ -1,11 +1,14 @@
 
 import {NgModule} from '@angular/core';
 
-import{HeroRoutingModule} from './heroes/hero-routing.module'
+import {Hero2RoutingModule} from './hero2/hero2-routing.module'
+
 
 @NgModule({
-    imports:[HeroRoutingModule],
-    exports:[HeroRoutingModule]
+    imports:[
+                Hero2RoutingModule
+            ],
+    exports:[Hero2RoutingModule]
 })
 
 export class AppRoutingModule{}

@@ -3,26 +3,21 @@
   "version": "1.0.0",
   "description": "A webpack starter for Angular",
   "scripts": {
-	"rimraf": "rimraf",
-	"clean:dist": "npm run rimraf -- dist",
-	"watch": "npm run watch:dev",
-      "watch:dev": "npm run build:dev -- --watch",
-        "watch:dev:hmr": "npm run watch:dev -- --hot",
-      "watch:test": "npm run test -- --auto-watch --no-single-run",
-      "watch:prod": "npm run build:prod -- --watch",
-
-    "build": "npm run build:dev",
-        "prebuild:dev": "npm run clean:dist",
-      "build:dev": "webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",
-        "prebuild:prod": "npm run clean:dist",
-      "build:prod": "webpack --config config/webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached --bail",
-	
-	"server:dev": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base src/",
-	
-	"start": "concurrently --kill-others --raw \"npm run server:dev\" \"npm run watch\"",
-    
-    "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.dev.js --progress --profile --bail --display-error-details"
+    "rimraf": "rimraf",
+    "clean:dist": "npm run rimraf -- dist",
+    "watch": "npm run watch:dev",
+    "watch:dev": "npm run build:dev -- --watch",
+    "watch:dev:hmr": "npm run watch:dev -- --hot",
+    "watch:test": "npm run test -- --auto-watch --no-single-run",
+    "watch:prod": "npm run build:prod -- --watch",
+    "build": "rimraf dist && webpack --config config/webpack.dev.js --progress --profile --bail --display-error-details",
+    "prebuild:dev": "npm run clean:dist",
+    "build:dev": "webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",
+    "prebuild:prod": "npm run clean:dist",
+    "build:prod": "webpack --config config/webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached --bail",
+    "server:dev": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base src/",
+    "start": "concurrently --kill-others --raw \"npm run server:dev\" \"npm run watch\"",
+    "test": "karma start"
   },
   "license": "MIT",
   "dependencies": {
@@ -36,6 +31,7 @@
     "@angular/router": "~3.2.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "express-session": "^1.14.2",
