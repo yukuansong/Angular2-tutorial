@@ -1,0 +1,16 @@
+<div [formGroup]="addressForm">   
+<!--street-->
+<div class="form-group col-xs-6">
+    <label>street</label>
+    <input type="text" formControlName="street">
+    <!--display error message if street is not valid-->
+    <small [hidden]="addressForm.controls.street.valid">
+        Street is required
+    </small>
+</div>
+<!--postcode-->
+<div class="form-group col-xs-6">
+    <label>postcode</label>
+    <input type="text" formControlName="postcode">
+</div>
+</div>

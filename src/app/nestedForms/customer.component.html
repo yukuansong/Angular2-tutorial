@@ -1,0 +1,40 @@
+<div class="container">
+    <h4> Add customer</h4>
+
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+     <!--we will place our fields here 
+
+    <!-- name -->
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name">
+        <!--display error message if name is not valid-->
+        <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+            Name is required (minimum 5 characters).
+        </small>
+    </div>
+
+    <!-- list of addresses -->
+    <div formArrayName="addresses">
+        <div *ngFor="let address of myForm.controls.addresses.controls; let i=index">
+            <!-- address header, show remove button when more than one address available -->
+            <div>
+                <span>Address {{i + 1}}</span>
+                <span *ngIf="myForm.controls.addresses.controls.length > 1" 
+                    (click)="removeAddress(i)">
+                </span>
+            </div>
+            <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+            <div [formGroupName]="i">
+                <my-address [addressForm]="myForm.controls.addresses.controls[i]"></my-address>
+            </div>
+
+        </div>
+    </div>
+    <div (click)="addAddress()">
+        Add address +
+    </div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+
+</div>

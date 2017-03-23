@@ -1,0 +1,28 @@
+<!-- user.component.html -->
+
+<form [formGroup]='myForm' novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+    <!-- We`add our form controls here -->
+    <div>
+        <label>Name</label>
+        <input type="text" formControlName="name">  
+        <small [hidden]="myForm.controls.name.valid || (myForm.controls.name.pristine && !submitted)">
+            Name is required (minimum 5 characters).
+        </small>
+    </div>
+    <div formGroupName="address">
+        <div>
+            <label>Street</label>
+            <input type="text" formControlName="street">
+        </div>
+        <label>Postcode</label>
+        <input type="text" formControlName="postcode">
+    </div>
+    <button type="submit">Submit</button>
+
+    <div>
+        <label>Form Changes</label>
+        <div *ngFor="let event of events">
+            <pre> {{event | json}} </pre>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<h1>
+    The Ultimate Guide to Forms in Angular 2
+</h1>
+
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <input type="text" name="sku" placeholder="SKU" [formControl]="myForm.controls['sku']">
+    <div *ngIf="myForm.controls['sku'].hasError('invalidSku')">SKU should start with '123'</div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+
+</form>
