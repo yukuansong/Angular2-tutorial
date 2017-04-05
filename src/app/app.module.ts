@@ -20,7 +20,8 @@ import {LoginRegistrationModule} from './loginRegistration/login-registration.mo
 
 import {NotFoundComponent} from './page-not-found.component';
 // import {Hero2Service} from './hero2/hero2.service'
-// import {AuthGuard} from './loginRegistration/services/auth.guard'
+// import {AuthGuard} from './loginRegistration/services/auth.guard';
+import {DashboardModule} from './dashboard/dashboard.module'
 @NgModule({
   imports: [
             BrowserModule, 
@@ -37,6 +38,7 @@ import {NotFoundComponent} from './page-not-found.component';
             CustomerModule,
             // GuideModule
             LoginRegistrationModule,
+            DashboardModule,
            ],
   declarations: [AppComponent,
                  NotFoundComponent],
